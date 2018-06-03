@@ -5,7 +5,9 @@ source 'https://rubygems.org'
 gem 'materialize-sass', '~> 1.0.0.rc1'
 gem 'rails', '4.2.6'
 gem 'rails-api'
-gem 'pg', '~>0.20.0'
+group :production do
+	gem 'pg', '~>0.20.0'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -51,6 +53,6 @@ end
 #	gem 'sqlite3'
 #end
 
-group :production do
-	gem 'rails_12factor'
-end
+#group :production do
+#	gem 'rails_12factor'
+#end
