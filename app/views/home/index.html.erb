@@ -45,6 +45,7 @@
             ul.classList.add("cd");
             results.appendChild(div);
             var words = data.data;
+            words.sort();
             for(i=0;i<words.length;i++)
             {
             	var li = document.createElement("li");
