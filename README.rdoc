@@ -1,71 +1,72 @@
-== README
+=Dictionary-master
 
-->
-  This application is developed using Ruby on Rails and their versions are defined as follows:
-	* rails 4.2.6
-	* ruby 2.3.3
+This application is developed using Ruby on Rails and their versions are defined as follows:
 
+  Rails 4.2.6
+  Ruby 2.3.3
 
-->
-  The Application Dictionary-master is developed for the purpose of finding English words from an entered string of characters. 
-  It is a single-page web application which is implemented using AJAX request to provide support for reflecting real-time changes. 
-  English words are taken from the file 'https://github.com/first20hours/google-10000-english/edit/master/google-10000-english.txt'.
+The Application Dictionary-master is developed for the purpose of finding English words from an entered string of characters. It is a single-page web application which is implemented using AJAX request to provide support for reflecting real-time changes.
 
+The english words dictionary used can be downloaded on GitHub
 
-->
-  The Application provides support for two optional parameters:
-	* Length of desired English word
-	* Query method for defining length (less than, less than or equal to, equal to)
+* https://github.com/first20hours/google-10000-english/edit/master/google-10000-english.txt
 
+The Application provides support for two optional parameters:
+* Length of desired English word
+* Query method for defining length (less than, less than or equal to, equal to)
 
-->
-  For Database management PostgreSQL 9.5 is used. The gem used to implement it is 'pg 0.20.0'.
+==Database Management
 
+For Database management PostgreSQL is used. The gem used to implement it is pg.
+Their versions are as follows:
 
-->
-  Setup Instructions
+  PostgreSQL 9.5
+  pg 0.20.0
 
-	* Clone the repo:
+==Setup Instructions
 
-	$ git clone git@github.com:alpha-qu/Dictionary-master.git
+Clone the repo:
 
+  git clone git@github.com:alpha-qu/Dictionary-master.git
 
-	* Navigate to the new directory and install all required Gems
+Navigate to the new directory and install all required Gems
 
-	$ bundle install
+  bundle install
 
+Create and migrate the database
 
-	* Create and migrate the database
+  rake db:create
 
-	$ rake db:create
+  rake db:migrate
+(NOTE: Application uses PostgreSQL database so it should be setup first.)
 
-	$ rake db:migrate
-	(NOTE: Application uses PostgreSQL database so it should be setup first.)
+Initialise the database with English words using update_dictionary task
 
+  rake update_dictionary:update
 
-	* Initialise the database with English words using update_dictionary task
+==Sample
 
-	$ rake update_dictionary:update
+Sample input1:
+  
+  Query String 	:  dgo
+  String Length	:  3
+  Query Method 	:  Equal to
 
-->
-  An instance from the application
-	* Sample input1:
-		Query String 	:  dgo
-		String Length 	:  3
-		Query Method 	:  Equal to
+Sample output1:
+  
+  Query Results are:
+  	god
+  	dog
 
-	* Sample output1:
-		Query Results are:
-			*god
-			*dog
+Sample input2:
+  
+  Query String 	:  gdof
+  String Length	:  3
+  Query Method 	:  Equal to
 
-	* Sample input2:
-		Query String 	:  gdof
-		String Length 	:  3
-		Query Method 	:  Equal to
-
-	* Sample output2:
-		Query Results are:
-			*god
-			*dog
-			*fog
+Sample output2:
+  
+  Query Results are:
+  	god
+  	dog
+  	fog
