@@ -1,0 +1,50 @@
+// Place all the styles related to the api controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#title
+{
+	text-align: center;
+	font-size: 30px;
+	color: #fff999;
+	margin-top: 3%;
+}
+#query_form
+{
+	margin-left: 35%;
+	margin-top: 5%;
+	color: #0e2428;
+}
+#results
+{
+	height: 216px; 
+	width: 200px;  
+	margin-left: 42%;
+    overflow-y: auto;
+}
+html
+{	
+	background: url("img1.jpg");
+	background-size: 135% ;
+	font-family: 'Open Sans', sans-serif;  
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+input
+{
+	border-radius: 5px;
+}
+select
+{
+
+	border-radius: 5px;
+}
+.ab
+{
+	color: #0e2428;
+	font-size: 18px;
+}
+.cd
+{
+	color: #fff999;
+
+}

@@ -1,0 +1,63 @@
+<body>
+<div id="abcd">
+<div id="title">
+	Welcome to Word Dict
+</div>
+<form id="query_form">
+	Enter Query String: <input style="margin-left: 78px;"type="text" name="query_string" required> <br><br>
+	Enter String Length (optional): <input type="number" name="query_length"> <br><br><br>
+	<select  style="margin-left: 6%;" name="query_method">
+		<option value="" selected disabled> Please Select Query Method</option><br>
+	  <option value="lte">Less Than or Equal To</option>
+	  <option value="e">Equal To</option>
+	  <option value="lt">Less Than</option>
+	</select> 	
+	<input style ="margin-left: 3%" type="submit">
+</form>
+<br><br>
+<div id="results"></div>
+</body>
+
+<script>
+	var d;
+	$(document).ready(function(){
+		$("#query_form").submit(function(event){
+			event.preventDefault();
+			var q_string = $("#query_form input[name='query_string'").val();
+			var q_length = $("#query_form input[name='query_length'").val();
+			var q_method = $("#query_form select[name='query_method'").val();
+			console.log(q_string,q_length,q_method);
+			$.ajax({
+        url: '/api/v1/query',
+        method: "GET",
+        data: { "query_string": q_string, "query_length": q_length, "query_method": q_method},
+        success: function(data) {
+        		// Now render results on front end
+            var element = document.getElementById("results");
+            while (element.firstChild) {
+						    element.removeChild(element.firstChild);
+						}
+			var div=document.createElement("div")
+			div.innerHTML="Query Results are:"
+
+            var ul = document.createElement("ul")
+            div.classList.add("ab");
+            ul.classList.add("cd");
+            results.appendChild(div);
+            var words = data.data;
+            for(i=0;i<words.length;i++)
+            {
+            	var li = document.createElement("li");
+            	li.innerHTML = words[i];
+            	ul.appendChild(li);
+            }
+            element.appendChild(ul);
+        },
+        error: function(error) {
+
+        }
+      });
+		});
+	})
+</script>
+</div>
